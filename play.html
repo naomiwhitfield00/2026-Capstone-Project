@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESCAPISM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'game/style.css' %}">
+</head>
+<body>
+<div class="crt">
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+
+  <header class="titlebar">
+    <span class="dot"></span>
+    <span class="title-text">ESCAPISM</span>
+    <a href="{% url 'game:home' %}" class="reset-link">leaderboard</a>
+  </header>
+
+  <main class="screen home-screen">
+    <h1 class="game-title small">ESCAPISM</h1>
+    <p class="tagline">Enter your name. The clock starts the moment you press start.</p>
+
+    <form method="post" class="name-form">
+      {% csrf_token %}
+      <input
+        type="text"
+        name="player_name"
+        id="playerName"
+        maxlength="40"
+        autocomplete="off"
+        autofocus
+        spellcheck="false"
+        placeholder="your name"
+        required
+      >
+      <button type="submit" class="reset-link big">start game</button>
+    </form>
+  </main>
+</div>
+<script>
+  const nameInput = document.getElementById("playerName");
+  if (nameInput) { nameInput.focus(); }
+</script>
+</body>
+</html>
