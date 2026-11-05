@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escapism</title>
+<link rel="stylesheet" href="/css/escapism.css?v=__VERSION__">
+<script type="importmap">
+{ "imports": { "three": "__THREE_URL__" } }
+</script>
+</head>
+<body>
+<div class="crt">
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+
+  <!-- ===== Profile screen ===== -->
+  <section id="profileScreen" class="panel hidden">
+    <h1 class="game-title">ESCAPISM</h1>
+    <p class="tagline">Wake up. Get out. Don't look back.</p>
+
+    <div id="existingProfiles" class="hidden">
+      <h2 class="board-heading">Continue as</h2>
+      <div id="profileList" class="profile-list"></div>
+    </div>
+
+    <h2 class="board-heading">New player</h2>
+    <form id="profileForm" class="name-form">
+      <input type="text" id="nameInput" maxlength="20" placeholder="Your name" autocomplete="off" spellcheck="false">
+      <div class="logo-label">Choose your logo</div>
+      <div id="logoPicker" class="logo-picker"></div>
+      <button type="submit" class="btn big">Enter the lobby</button>
+    </form>
+  </section>
+
+  <!-- ===== Game screen ===== -->
+  <section id="gameScreen" class="game hidden">
+    <header class="titlebar">
+      <span class="dot"></span>
+      <span class="title-text" id="roomTitle">ESCAPISM</span>
+      <img id="playerLogo" class="player-logo" alt="">
+      <span class="player-name" id="playerName"></span>
+      <span class="clock" id="clock" title="Time in this room">--:--</span>
+      <button class="btn" id="boardsBtn" type="button">leaderboards</button>
+      <button class="btn" id="lobbyBtn" type="button">lobby</button>
+      <button class="btn" id="switchBtn" type="button">switch player</button>
+    </header>
+
+    <div class="scene-wrap">
+      <div id="scene3d" class="scene3d" aria-label="Room scene, click objects to interact"></div>
+      <p class="scene-hint">Click things in the room, or type commands below. Type <b>help</b> for ideas.</p>
+    </div>
+
+    <main class="screen" id="screen"></main>
+
+    <form class="input-row" id="cmdForm">
+      <span class="prompt">&gt;</span>
+      <input id="cmdInput" type="text" autocomplete="off" spellcheck="false"
+             placeholder="type a command, or 'help'">
+    </form>
+  </section>
+
+  <!-- ===== Leaderboards overlay ===== -->
+  <section id="boardsOverlay" class="overlay hidden">
+    <div class="overlay-card">
+      <button class="btn" id="boardsClose" type="button">close</button>
+      <h1 class="game-title small">LEADERBOARDS</h1>
+      <p class="tagline">Fastest escapes on this computer.</p>
+      <div id="boardsBody"></div>
+    </div>
+  </section>
+</div>
+
+<script type="module" src="/js/app.js?v=__VERSION__"></script>
+</body>
+</html>
