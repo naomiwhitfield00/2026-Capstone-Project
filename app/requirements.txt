@@ -1,0 +1,8 @@
+# Needed to RUN the game from source (python run_escapism.py):
+#   nothing! The game itself only uses Python's standard library.
+#
+# Optional -- gives the game its own window instead of opening your browser:
+pywebview>=5.0
+
+# Only needed to BUILD the Windows .exe (see build_windows.bat):
+pyinstaller>=6.0
